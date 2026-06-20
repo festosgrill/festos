@@ -503,10 +503,25 @@ a   { color: inherit; }
 }
 
 @media (max-width: 720px) {
+  #menu .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #menu .section-head {
+    padding-left: var(--container-pad);
+    padding-right: var(--container-pad);
+  }
+
+  .menu-images {
+    gap: 0;
+  }
+
   .menu-image img {
     border: none;
     border-radius: 0;
     box-shadow: none;
+    width: 100%;
   }
 
   .nav {
