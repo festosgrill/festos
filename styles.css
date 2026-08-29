@@ -329,6 +329,19 @@ a   { color: inherit; }
   flex-shrink: 0;
 }
 .eyebrow.on-blue { color: rgba(255,255,255,0.75); }
+
+/* Footnote marker linking to the pricing note in the footer */
+.footnote-ref {
+  margin-left: -0.2em;
+  font-size: 0.85em;
+  letter-spacing: normal;
+  vertical-align: super;
+  text-decoration: none;
+  color: var(--orange);
+  transition: opacity 0.2s ease;
+}
+.footnote-ref:hover { opacity: 0.65; }
+
 .section-head.centered .eyebrow::after {
   content: '';
   width: 28px; height: 1.5px;
@@ -610,6 +623,19 @@ a   { color: inherit; }
   color: rgba(255,255,255,0.7);
   font-size: 0.85rem;
 }
+.footer-note {
+  max-width: 62ch;
+  margin: 0 auto 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  text-align: center;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.3s ease;
+}
+.footer-note:target { color: rgba(255,255,255,0.85); }
+
 .footer-inner {
   display: flex;
   justify-content: space-between;
