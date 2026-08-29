@@ -17,6 +17,7 @@
   <header class="site-header">
     <div class="header-inner">
       <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#order">Order</a>
         <a href="#menu">Menu</a>
         <a href="#location">Location</a>
         <a href="#hours">Hours</a>
@@ -68,17 +69,30 @@
     </div>
 
     <!-- =====================================================
-         ORDER ONLINE — call-to-action button
+         ORDER ONLINE — delivery partner buttons
          ===================================================== -->
-    <section class="order-cta">
-      <div class="container">
-        <a class="order-btn" href="https://festosgrill.dine.online/locations/15222512?fulfillment=delivery" target="_blank" rel="noopener">
-          <span>Order Online for Pickup or Delivery</span>
-          <svg class="order-btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <p class="order-powered">Powered by Grubhub</p>
+    <section id="order" class="section">
+      <div class="container narrow">
+
+        <header class="section-head centered">
+          <p class="eyebrow">Order Online</p>
+          <h2>Pickup or delivery.</h2>
+        </header>
+
+        <div class="order-options">
+          <a class="order-option order-option--grubhub"
+             href="https://www.grubhub.com/restaurant/festos-grill-61-18-188th-st-flushing/15222512"
+             target="_blank" rel="noopener">
+            <img src="grubhub-logo.png" alt="Grubhub" loading="lazy" />
+            <span class="order-option-note">Order now</span>
+          </a>
+
+          <div class="order-option order-option--disabled" aria-disabled="true">
+            <span class="order-option-badge">Coming Soon</span>
+            <img src="ubereats-logo.png" alt="Uber Eats" loading="lazy" />
+            <span class="order-option-note">Not available yet</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -168,8 +182,17 @@
         <ul class="contact-list">
           <li><span>Phone</span><a href="tel:+16463823912">(646) 382-3912</a></li>
           <li><span>Email</span><a href="mailto:mngfoodgroup@gmail.com">mngfoodgroup@gmail.com</a></li>
-          <li><span>Instagram</span><a href="#" target="_blank" rel="noopener">Coming Soon</a></li>
+          <li><span>Instagram</span><a href="https://www.instagram.com/festosgrill" target="_blank" rel="noopener">@festosgrill</a></li>
         </ul>
+
+        <a class="instagram-cta" href="https://www.instagram.com/festosgrill" target="_blank" rel="noopener">
+          <svg class="instagram-cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+            <circle cx="12" cy="12" r="4.6" />
+            <circle class="instagram-cta-dot" cx="17.6" cy="6.4" r="1.25" />
+          </svg>
+          <span>Follow @festosgrill</span>
+        </a>
       </div>
     </section>
 
