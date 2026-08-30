@@ -272,8 +272,9 @@ a   { color: inherit; }
   padding: 0.28rem 0.65rem;
 }
 
-/* Tighten the space between the order section and the menu heading */
-#order { padding-bottom: clamp(2rem, 4vw, 3rem); }
+/* Tighten the space around the order section — the marquee above it already
+   reads as a divider, and the menu heading follows closely below */
+#order { padding: clamp(2.25rem, 4.5vw, 3.25rem) 0 clamp(2rem, 4vw, 3rem); }
 #order + #menu { padding-top: clamp(2rem, 4vw, 3rem); }
 
 /* ---------- SECTIONS ---------- */
@@ -311,7 +312,9 @@ a   { color: inherit; }
 .section-head.centered .eyebrow { justify-content: center; }
 
 .eyebrow {
-  font-size: 1.0rem;
+  /* Stays at 1rem on narrow screens — the wide letter-spacing plus the
+     flanking rules already fill the container there */
+  font-size: clamp(1rem, 2.6vw, 1.2rem);
   font-weight: 700;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -458,6 +461,11 @@ a   { color: inherit; }
 }
 
 /* ---------- MENU IMAGES (full menu pages) ---------- */
+/* Header here is an eyebrow with no h2, so the default heading spacing
+   leaves a large gap above the menu pages */
+#menu .section-head { margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
+#menu .eyebrow { margin-bottom: 0; }
+
 .menu-images {
   display: grid;
   gap: 2rem;
