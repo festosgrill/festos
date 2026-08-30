@@ -238,6 +238,8 @@ a   { color: inherit; }
   color: var(--blue);
 }
 
+.order-option--grubhub .order-option-note { color: var(--orange); }
+
 .order-option--grubhub:hover {
   transform: translateY(-4px);
   border-color: var(--orange);
@@ -272,9 +274,14 @@ a   { color: inherit; }
   padding: 0.28rem 0.65rem;
 }
 
-/* Tighten the space around the order section — the marquee above it already
-   reads as a divider, and the menu heading follows closely below */
-#order { padding: clamp(2.25rem, 4.5vw, 3.25rem) 0 clamp(2rem, 4vw, 3rem); }
+/* A pale band sets the order section apart from the white menu below it
+   without competing with the full-blue sections further down. Padding is
+   tightened because the marquee above already reads as a divider. */
+#order {
+  padding: clamp(2.25rem, 4.5vw, 3.25rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+  background: var(--blue-soft);
+  border-bottom: 1px solid var(--blue-line);
+}
 #order + #menu { padding-top: clamp(2rem, 4vw, 3rem); }
 
 /* ---------- SECTIONS ---------- */
