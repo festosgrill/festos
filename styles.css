@@ -353,6 +353,42 @@ a   { color: inherit; }
 }
 .order-option:active { transform: translateY(-1px); }
 
+/* Paused state, applied by ordering.js. The cards keep their shape so the
+   section does not reflow — they just stop inviting a click. */
+.order-option.is-unavailable {
+  background: var(--blue-soft);
+  box-shadow: none;
+  opacity: 0.75;
+}
+.order-option.is-unavailable img {
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+.order-option.is-unavailable .order-option-note {
+  color: var(--muted);
+  letter-spacing: 0.14em;
+}
+.order-option.is-unavailable:hover,
+.order-option.is-unavailable:active {
+  transform: none;
+  border-color: var(--blue-line);
+  box-shadow: none;
+}
+
+.order-notice {
+  max-width: 44rem;
+  margin: 0 auto 1.5rem;
+  padding: 0.9rem 1.35rem;
+  border: 1px solid var(--blue-line);
+  border-left: 3px solid var(--orange);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
 /* A pale band sets the order section apart from the white menu below it
    without competing with the full-blue sections further down. Padding is
    tightened because the marquee above already reads as a divider. */

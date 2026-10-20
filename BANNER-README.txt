@@ -167,3 +167,6 @@ styles.css   The look of the banner, under "ANNOUNCEMENT BANNER" near the top.
              Edit only if you want to change colors or spacing.
 index.html   Holds the empty <div id="announcement"></div> the banner drops
              into, just after <body>. Leave it alone.
+
+To grey out the Grubhub and Uber Eats buttons when online ordering is paused,
+see the separate instructions in ORDERING-README.txt.
