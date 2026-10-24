@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=Rubik:ital,wght@0,400;0,500;0,700;1,500;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body id="top">
@@ -119,31 +119,173 @@
           <p class="eyebrow"><span>In-Person Menu<a class="footnote-ref" href="#pricing-note" aria-label="See note on in-person pricing">*</a></span></p>
         </header>
 
-        <div class="menu-images">
-          <figure class="menu-image">
-            <picture>
-              <source media="(max-width: 720px)" srcset="Mobile1.png">
-              <img src="Menu1.png" alt="Festos Grill menu page 1" loading="lazy">
-            </picture>
-          </figure>
-          <figure class="menu-image">
-            <picture>
-              <source media="(max-width: 720px)" srcset="Mobile2.png">
-              <img src="Menu2.png" alt="Festos Grill menu page 2" loading="lazy">
-            </picture>
-          </figure>
-          <figure class="menu-image">
-            <picture>
-              <source media="(max-width: 720px)" srcset="Mobile3.png">
-              <img src="Menu3.png" alt="Festos Grill menu page 3" loading="lazy">
-            </picture>
-          </figure>
-          <figure class="menu-image">
-            <picture>
-              <source media="(max-width: 720px)" srcset="Mobile4.png">
-              <img src="Menu4.png" alt="Festos Grill menu page 4" loading="lazy">
-            </picture>
-          </figure>
+        <div class="menu-text">
+
+          <section class="menu-group">
+            <h3 class="menu-group-title">Pita Sandwiches</h3>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <p class="menu-item-head">Lamb &amp; Beef Gyro <span class="menu-item-price">$12</span></p>
+                <p class="menu-item-desc">Seasoned lamb and beef gyro with tomatoes, onions, and tzatziki wrapped in pita.</p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Chicken Gyro <span class="menu-item-price">$12</span></p>
+                <p class="menu-item-desc">Marinated chicken gyro with lettuce, tomatoes, onions, and tzatziki, wrapped in warm pita.</p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Pork Souvlaki Pita <span class="menu-item-price">$12</span></p>
+                <p class="menu-item-desc">Grilled pork skewers marinated in olive oil, lemon, oregano and other spices, wrapped in pita with lettuce, tomatoes, onions, and tzatziki sauce.</p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Chicken Souvlaki Pita <span class="menu-item-price">$12</span></p>
+                <p class="menu-item-desc">Grilled chicken skewers marinated in olive oil, lemon, oregano and other spices, wrapped in pita with lettuce, tomatoes, onions, and tzatziki sauce.</p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Shrimp Pita <span class="menu-item-price">$14</span></p>
+                <p class="menu-item-desc">Grilled shrimp marinated in olive oil, garlic, and lemon, wrapped in warm pita with lettuce, tomatoes, bell peppers, fries, and tzatziki sauce.</p>
+              </li>
+            </ul>
+            <p class="menu-group-aside">Swap your pita for fresh hero bread — $14</p>
+          </section>
+
+          <section class="menu-group">
+            <h3 class="menu-group-title">Platters</h3>
+            <p class="menu-group-note">All platters are served with pita bread, tzatziki sauce, salad and a choice of french fries or rice.</p>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <p class="menu-item-head">Pork Souvlaki Platter <span class="menu-item-price">$16</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Chicken Souvlaki Platter <span class="menu-item-price">$16</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Grilled Chicken Platter <span class="menu-item-price">$16</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Lamb &amp; Beef Gyro Platter <span class="menu-item-price">$16</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Chicken Gyro Platter <span class="menu-item-price">$16</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Grilled Shrimp Platter <span class="menu-item-price">$18</span></p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="menu-group">
+            <h3 class="menu-group-title">Salads</h3>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <p class="menu-item-head">Greek Salad <span class="menu-item-price">$12</span></p>
+                <p class="menu-item-desc">Lettuce, tomatoes, cucumbers, onions, olives, feta cheese, olive oil, and oregano.</p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Horiatiki Salad <span class="menu-item-price">$14</span></p>
+                <p class="menu-item-desc">Tomatoes, red onion, cucumber, green peppers, kalamata olives, olive oil, oregano, feta cheese, served with pita bread.</p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Garden Salad with Dolmadakia <span class="menu-item-price">$12</span></p>
+                <p class="menu-item-desc">Stuffed grape leaves (dolmadakia), lettuce, tomato, cucumber, onions, green and red peppers, olives, olive oil, and oregano.</p>
+              </li>
+            </ul>
+            <p class="menu-group-aside">Add grilled chicken, chicken gyro, pork souvlaki, chicken souvlaki, or lamb &amp; beef gyro meat — $5</p>
+          </section>
+
+          <section class="menu-group">
+            <h3 class="menu-group-title">Skepasti</h3>
+            <p class="menu-group-note">A Greek-style sandwich that resembles a quesadilla, stuffed with cheese, meat, tomatoes, onions, fries, and tzatziki, grilled to perfection.</p>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <p class="menu-item-head">Chicken Gyro <span class="menu-item-price">$18</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Souvlaki Chicken or Pork <span class="menu-item-price">$18</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Lamb &amp; Beef Gyro <span class="menu-item-price">$18</span></p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="menu-group">
+            <h3 class="menu-group-title">Mixed Grill</h3>
+            <p class="menu-group-note">Lamb and beef gyro, chicken gyro, chicken souvlaki and pork souvlaki served with salad, fries and pita.</p>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <p class="menu-item-head">Mixed Grill for 1 <span class="menu-item-price">$30</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Mixed Grill for 2 <span class="menu-item-price">$50</span></p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="menu-group">
+            <h3 class="menu-group-title">A La Carte</h3>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <p class="menu-item-head">Souvlaki Skewers <span class="menu-item-price">$6</span></p>
+                <p class="menu-item-desc">Choice of chicken or pork served with pita or bread.</p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Dolmadakia <span class="menu-item-price">$6</span></p>
+                <p class="menu-item-desc">6 stuffed grape leaves with rice, herbs, and olive oil.</p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Chicken Wings 8pc <span class="menu-item-price">$9</span></p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="menu-group">
+            <h3 class="menu-group-title">Burger &mdash; Deluxe</h3>
+            <p class="menu-group-note">All burgers served with fries, American cheese, lettuce, tomato, onion, ketchup.</p>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <p class="menu-item-head">Cheeseburger 8 oz <span class="menu-item-price">$16</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Grilled Chicken Fillet <span class="menu-item-price">$16</span></p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="menu-group">
+            <h3 class="menu-group-title">Fries</h3>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <p class="menu-item-head">Loaded Greek Fries <span class="menu-item-price">$12</span></p>
+                <p class="menu-item-desc">Crispy fries topped with feta, oregano, tzatziki, and gyro meat.</p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Greek Fries <span class="menu-item-price">$8</span></p>
+                <p class="menu-item-desc">Crispy fries topped with feta cheese.</p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Chicken Wings 5pc with Fries <span class="menu-item-price">$12</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">French Fries <span class="menu-item-price">$6</span></p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="menu-group">
+            <h3 class="menu-group-title">Sides</h3>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <p class="menu-item-head">Tzatziki Sauce <span class="menu-item-price">$1</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Pita <span class="menu-item-price">$1</span></p>
+              </li>
+              <li class="menu-item">
+                <p class="menu-item-head">Yellow Sauce <span class="menu-item-price">$1</span></p>
+              </li>
+            </ul>
+          </section>
+
         </div>
       </div>
     </section>
@@ -155,7 +297,7 @@
       <div class="container narrow">
         <header class="section-head">
           <p class="eyebrow on-blue">Location</p>
-          <h2>Horace Harding Expy & 188th Street</h2>
+          <h2>Park Ave & E 48th St</h2>
         </header>
       </div>
     </section>
@@ -170,12 +312,12 @@
         </header>
         <div class="hours-card centered-hours">
           <ul class="hours hours-centered">
-            <li><span>Monday</span><span>11am–8pm</span></li>
-            <li><span>Tuesday</span><span>11am–8pm</span></li>
-            <li><span>Wednesday</span><span>11am–8pm</span></li>
-            <li><span>Thursday</span><span>11am–8pm</span></li>
-            <li><span>Friday</span><span>11am–8pm</span></li>
-            <li><span>Saturday</span><span>11am–8pm</span></li>
+            <li><span>Monday</span><span>9am–3:30pm</span></li>
+            <li><span>Tuesday</span><span>9am–3:30pm</span></li>
+            <li><span>Wednesday</span><span>9am–3:30pm</span></li>
+            <li><span>Thursday</span><span>9am–3:30pm</span></li>
+            <li><span>Friday</span><span>9am–3:30pm</span></li>
+            <li><span>Saturday</span><span>Closed</span></li>
             <li><span>Sunday</span><span>Closed</span></li>
           </ul>
         </div>

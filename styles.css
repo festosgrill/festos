@@ -13,6 +13,7 @@
   --muted:       #5b6b80;
 
   --font: 'Manrope', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-menu: 'Rubik', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
 
   --container-max: 1100px;
   --container-pad: 1.5rem;
@@ -582,28 +583,95 @@ a   { color: inherit; }
   line-height: 1.6;
 }
 
-/* ---------- MENU IMAGES (full menu pages) ---------- */
+/* ---------- MENU (text) ---------- */
 /* Header here is an eyebrow with no h2, so the default heading spacing
-   leaves a large gap above the menu pages */
-#menu .section-head { margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
+   leaves a large gap above the menu */
+#menu .section-head { margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem); }
 #menu .eyebrow { margin-bottom: 0; }
 
-.menu-images {
-  display: grid;
-  gap: 2rem;
+/* A single column, held to a readable measure rather than the full
+   container width */
+.menu-text {
+  font-family: var(--font-menu);
+  max-width: 44rem;
+  margin: 0 auto;
 }
 
-.menu-image picture {
-  display: block;
+.menu-group + .menu-group { margin-top: clamp(2.75rem, 5vw, 3.75rem); }
+
+/* Rules run the full measure and flank the title, so each category reads
+   as its own band in the long scroll */
+#menu .menu-group-title {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  font-family: var(--font-menu);
+  font-size: clamp(1.3rem, 3vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1.4rem;
+}
+#menu .menu-group-title::before,
+#menu .menu-group-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--blue-line);
 }
 
-.menu-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-  border: 1px solid var(--blue-line);
-  box-shadow: 0 10px 32px rgba(10,77,140,0.16);
-  background: var(--white);
+/* Sits under the title and applies to every item below it */
+.menu-group-note {
+  max-width: 38rem;
+  margin: -0.6rem auto 1.6rem;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* Add-ons and swaps, set apart from the items they qualify */
+.menu-group-aside {
+  margin-top: 1.6rem;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.menu-group-aside::before { content: '('; }
+.menu-group-aside::after  { content: ')'; }
+
+.menu-items { list-style: none; }
+.menu-item + .menu-item { margin-top: 1.5rem; }
+
+/* Name left, price pinned right — the width of a single column is what
+   makes this pairing legible */
+.menu-item-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.menu-item-price {
+  font-style: normal;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+.menu-item-desc {
+  margin-top: 0.3rem;
+  max-width: 38rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
 }
 
 /* ---------- ABOUT ---------- */
@@ -805,27 +873,6 @@ a   { color: inherit; }
   .announcement-text { font-size: 0.8rem; }
   /* Larger tap target, same visual size */
   .announcement-close { width: 36px; height: 36px; right: 0.4rem; }
-
-  #menu .container {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  #menu .section-head {
-    padding-left: var(--container-pad);
-    padding-right: var(--container-pad);
-  }
-
-  .menu-images {
-    gap: 0;
-  }
-
-  .menu-image img {
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    width: 100%;
-  }
 
   .nav {
     position: fixed;
