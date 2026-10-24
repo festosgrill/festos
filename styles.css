@@ -398,7 +398,9 @@ a   { color: inherit; }
   background: var(--blue-soft);
   border-bottom: 1px solid var(--blue-line);
 }
-#order + #menu { padding-top: clamp(2rem, 4vw, 3rem); }
+/* General sibling, not adjacent — the ordering.js tag sits between the
+   two sections */
+#order ~ #menu { padding-top: clamp(2rem, 4vw, 3rem); }
 
 /* ---------- SECTIONS ---------- */
 .section { padding: var(--section-pad) 0; }
