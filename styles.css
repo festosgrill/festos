@@ -7,8 +7,13 @@
   --blue-deep:   #003d82;
   --orange:      #f07c20;
   --blue-line:   #c9dcef;
-  --blue-soft:   #eef4fa;
+  /* One step deeper than --cream, for bands and panels that need to separate
+     from the page without turning cold */
+  --sand:        #faf7ea;
   --white:       #ffffff;
+  /* Warm paper tone for pages and cards. --white stays pure for text on the
+     blue sections, and for surfaces meant to lift off the cream. */
+  --cream:       #fdfdf1;
   --ink:         #0a1929;
   --muted:       #5b6b80;
 
@@ -29,7 +34,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font);
   color: var(--ink);
-  background: var(--white);
+  background: var(--cream);
   line-height: 1.65;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -115,8 +120,8 @@ a   { color: inherit; }
   transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 .announcement-link:hover {
-  background: var(--white);
-  border-color: var(--white);
+  background: var(--cream);
+  border-color: var(--cream);
   color: var(--blue-deep);
 }
 
@@ -168,7 +173,9 @@ a   { color: inherit; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255,255,255,0.92);
+  /* Kept fairly opaque: the saturate filter below pulls too much of the blue
+     sections through a more translucent cream and turns the bar green */
+  background: rgba(253,253,241,0.96);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
   border-bottom: 1px solid var(--blue-line);
@@ -239,7 +246,7 @@ a   { color: inherit; }
 .hero {
   padding: clamp(5rem, 11vw, 8rem) 0 clamp(4.5rem, 10vw, 7rem);
   text-align: center;
-  background-color: var(--white);
+  background-color: var(--cream);
   background-image: url('hero-bg.jpg');
   background-size: cover;
   background-position: center;
@@ -268,13 +275,14 @@ a   { color: inherit; }
 
 /* ---------- MARQUEE ---------- */
 .marquee {
-  background: var(--blue);
+  background: var(--blue-deep);
   color: var(--white);
   padding: 1.5rem 0;
   overflow: hidden;
   white-space: nowrap;
   border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  /* No bottom edge — the order section picks up the same blue and fades down */
+  border-bottom: none;
 }
 
 .marquee-track {
@@ -290,10 +298,12 @@ a   { color: inherit; }
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0 3rem;
+  padding: 0;
   display: inline-flex;
   align-items: center;
-  gap: 3rem;
+  /* The trailing letter-spacing sits in this gap, so the ink — not the
+     layout box — lands halfway between the stars. */
+  gap: calc(3rem - 0.12em);
 }
 
 .marquee-item::after {
@@ -302,6 +312,7 @@ a   { color: inherit; }
   opacity: 0.6;
   font-style: normal;
   flex-shrink: 0;
+  margin-right: 3rem;
 }
 
 @keyframes marquee-scroll {
@@ -357,7 +368,7 @@ a   { color: inherit; }
 /* Paused state, applied by ordering.js. The cards keep their shape so the
    section does not reflow — they just stop inviting a click. */
 .order-option.is-unavailable {
-  background: var(--blue-soft);
+  background: color-mix(in srgb, var(--white) 78%, var(--blue));
   box-shadow: none;
   opacity: 0.75;
 }
@@ -381,7 +392,6 @@ a   { color: inherit; }
   margin: 0 auto 1.5rem;
   padding: 0.9rem 1.35rem;
   border: 1px solid var(--blue-line);
-  border-left: 3px solid var(--orange);
   border-radius: 12px;
   background: var(--white);
   color: var(--ink);
@@ -390,13 +400,34 @@ a   { color: inherit; }
   text-align: center;
 }
 
-/* A pale band sets the order section apart from the white menu below it
-   without competing with the full-blue sections further down. Padding is
-   tightened because the marquee above already reads as a divider. */
+.order-notice-line { display: block; }
+
+/* Holds the marquee navy through the heading, then eases into the menu
+   cream. The early stops stay within a few steps of that navy so the two
+   blue areas do not read as separate sections. */
 #order {
-  padding: clamp(2.25rem, 4.5vw, 3.25rem) 0 clamp(2.5rem, 5vw, 3.5rem);
-  background: var(--blue-soft);
-  border-bottom: 1px solid var(--blue-line);
+  padding: clamp(2.25rem, 4.5vw, 3.25rem) 0 clamp(3rem, 6vw, 4.5rem);
+  background: linear-gradient(
+    180deg,
+    var(--blue-deep) 0%,
+    #023e83 18%,
+    #054084 26%,
+    #074185 32%,
+    #114789 38%,
+    #245492 44%,
+    #3d68a0 50%,
+    #567dae 55%,
+    #7f9ec2 62%,
+    #adc2d5 70%,
+    #d6e0e4 78%,
+    #f1f4ed 86%,
+    #fcfcf1 94%,
+    var(--cream) 100%
+  );
+}
+#order .eyebrow,
+#order h2 {
+  color: var(--white);
 }
 /* General sibling, not adjacent — the ordering.js tag sits between the
    two sections */
@@ -514,7 +545,7 @@ a   { color: inherit; }
 
 .menu-photo {
   aspect-ratio: 4 / 5;
-  background: var(--blue-soft);
+  background: var(--sand);
   border: 1px solid var(--blue-line);
   border-radius: 4px;
   position: relative;
@@ -678,7 +709,7 @@ a   { color: inherit; }
 
 /* ---------- EVENTS PAGE ---------- */
 .section-soft {
-  background: var(--blue-soft);
+  background: var(--sand);
   border-top: 1px solid var(--blue-line);
   border-bottom: 1px solid var(--blue-line);
 }
@@ -708,7 +739,7 @@ a   { color: inherit; }
   position: relative;
   overflow: hidden;
   border-radius: 6px;
-  background: var(--blue-soft);
+  background: var(--sand);
   box-shadow: 0 8px 24px rgba(10,77,140,0.12);
 }
 .event-shot:nth-child(1) { grid-column: span 4; grid-row: span 2; }
@@ -742,7 +773,7 @@ a   { color: inherit; }
 
 .catering-item {
   padding: 1.6rem 1.75rem;
-  background: var(--white);
+  background: var(--cream);
   border: 1px solid var(--blue-line);
   border-radius: 10px;
 }
@@ -842,8 +873,8 @@ a   { color: inherit; }
   border-color: var(--orange);
 }
 .cta-button-solid:hover {
-  background: var(--white);
-  border-color: var(--white);
+  background: var(--cream);
+  border-color: var(--cream);
   color: var(--blue);
 }
 
@@ -880,7 +911,7 @@ a   { color: inherit; }
 #hours .eyebrow { margin-bottom: 0; }
 
 .hours-card {
-  background: var(--blue-soft);
+  background: var(--sand);
   border: 1px solid var(--blue-line);
   border-radius: 4px;
   padding: 1.25rem 2rem;
@@ -990,8 +1021,8 @@ a   { color: inherit; }
 
 .instagram-cta:hover {
   transform: translateY(-2px);
-  background: var(--white);
-  border-color: var(--white);
+  background: var(--cream);
+  border-color: var(--cream);
   color: var(--blue);
   box-shadow: 0 14px 30px rgba(0,0,0,0.18);
 }
@@ -1083,7 +1114,7 @@ a   { color: inherit; }
     align-items: stretch;
     gap: 0;
     padding: var(--header-height) var(--container-pad) 1.5rem;
-    background: var(--white);
+    background: var(--cream);
     border-bottom: 1px solid var(--blue-line);
     transform: translateY(-100%);
     transition: transform 0.35s ease, visibility 0.35s ease;

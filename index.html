@@ -87,15 +87,16 @@
           <h2>Pickup or delivery.</h2>
         </header>
 
+        <!-- data-provider matches the on/off switches in ordering.js -->
         <div class="order-options">
-          <a class="order-option"
+          <a class="order-option" data-provider="grubhub"
              href="https://www.grubhub.com/restaurant/festos-grill-61-18-188th-st-flushing/15222512"
              target="_blank" rel="noopener">
             <img src="grubhub-logo.png" alt="Grubhub" loading="lazy" />
             <span class="order-option-note">Order now</span>
           </a>
 
-          <a class="order-option"
+          <a class="order-option" data-provider="ubereats"
              href="https://www.ubereats.com/store/festosgrill/y3G_RxjkRwicPZ9JYZ7PyA?diningMode=DELIVERY"
              target="_blank" rel="noopener">
             <img src="ubereats-logo.png" alt="Uber Eats" loading="lazy" />
@@ -105,9 +106,9 @@
       </div>
     </section>
 
-    <!-- Greys out the buttons above when online ordering is paused.
-         The on/off switch lives in ordering.js. Loaded here so the buttons
-         are never shown as available first. -->
+    <!-- Greys out any ordering button that is paused. The on/off switches
+         live in ordering.js. Loaded here so a paused button is never shown
+         as available first. -->
     <script src="ordering.js"></script>
 
     <!-- =====================================================

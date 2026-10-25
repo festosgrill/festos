@@ -5,13 +5,17 @@ FESTOS GRILL — HOW TO PAUSE AND RESUME ONLINE ORDERING
 This controls the two buttons in the "Pickup or delivery" section of
 festosgrill.com: Grubhub and Uber Eats.
 
-When you pause online ordering:
-  - both logos turn grey
-  - the buttons stop working, so nobody can click through and place an order
-  - "Order now" under each logo changes to "Temporarily unavailable"
+Each platform has its own switch, so you can pause one, the other, or both.
+
+When a platform is paused:
+  - its logo turns grey
+  - its button stops working, so nobody can click through and place an order
+  - "Order now" under that logo changes to "Temporarily unavailable"
   - a short notice appears above the buttons explaining why
 
-Nothing is deleted. Turning it back on is a one-word change.
+The platform you leave on keeps working normally, in full color.
+
+Nothing is deleted. Turning one back on is a one-word change.
 
 Everything you need to edit lives in ONE file:
 
@@ -25,36 +29,51 @@ That block is the whole feature. Nothing below it needs to be touched.
 
 
 -------------------------------------------------------------------------------
-HOW TO PAUSE ONLINE ORDERING
+THE TWO SWITCHES
 -------------------------------------------------------------------------------
 
-1. Open ordering.js.
-2. Change this line:
+Near the top of ordering.js you will see these two lines:
 
-       available: true,
+    grubhub:  false,
+    ubereats: true,
 
-   to:
+true  = that button works normally
+false = that button greys out and stops working
 
-       available: false,
+Right now Grubhub is paused and Uber Eats is working, which is why only the
+Grubhub logo is grey.
 
-3. Save and publish (see PUBLISHING below).
-
-The buttons grey out immediately for every visitor.
+Change either word, save, and publish (see PUBLISHING below).
 
 
 -------------------------------------------------------------------------------
-HOW TO TURN ONLINE ORDERING BACK ON
+THE FOUR COMBINATIONS
 -------------------------------------------------------------------------------
 
-1. Open ordering.js.
-2. Change available back to true:
+Both platforms working — no grey buttons, no notice:
 
-       available: true,
+    grubhub:  true,
+    ubereats: true,
 
-3. Save and publish.
+Only Grubhub paused (how the site is set up today):
 
-The buttons return to full color and work exactly as before. There is nothing
-else to undo — no deleted links to put back, no styling to reverse.
+    grubhub:  false,
+    ubereats: true,
+
+Only Uber Eats paused:
+
+    grubhub:  true,
+    ubereats: false,
+
+Both paused — all online ordering off:
+
+    grubhub:  false,
+    ubereats: false,
+
+IMPORTANT: whenever you change a switch, reread the notice below it and make
+sure it still matches. The notice does not update itself. If you pause Uber
+Eats but the notice still says Grubhub is down, customers get the wrong
+message.
 
 
 -------------------------------------------------------------------------------
@@ -62,26 +81,55 @@ THE OTHER TWO SETTINGS
 -------------------------------------------------------------------------------
 
 notice
-    The sentence shown above the greyed-out buttons. It currently reads:
+    The message shown above the buttons. It appears whenever at least one
+    platform is paused, and disappears on its own when both are back on.
+    It currently reads:
 
-        Online ordering is temporarily unavailable. Please call us at
-        (646) 382-3912 or stop by to order in person.
+        Grubhub ordering is temporarily unavailable.
+        Please order through Uber Eats or call us at (646) 382-3912.
 
-    Edit the text inside the quotes to say something else, for example
-    mention a reopening date. For no notice at all, use empty quotes: ''
+    It is written as a list, and each entry starts on its own line:
+
+        notice: [
+          'Grubhub ordering is temporarily unavailable.',
+          'Please order through Uber Eats or call us at (646) 382-3912.'
+        ],
+
+    Every entry except the last one has a comma after its closing quote. Add
+    a line by adding another entry, remove one by deleting its whole row.
+
+    Some examples:
+
+    If you pause Uber Eats instead:
+
+        notice: [
+          'Uber Eats ordering is temporarily unavailable.',
+          'Please order through Grubhub or call us at (646) 382-3912.'
+        ],
+
+    If you pause both:
+
+        notice: [
+          'Online ordering is temporarily unavailable.',
+          'Please call us at (646) 382-3912 or stop by to order in person.'
+        ],
+
+    For a one-line message you can skip the brackets and use plain quotes:
+
+        notice: 'We are not taking Grubhub orders this week.',
+
+    For no notice at all, use empty quotes: ''
 
 buttonNote
     The small line under each grey logo, currently "Temporarily unavailable".
-    Keep it short — it sits in a narrow space under the logo.
+    It is used for every paused platform. Keep it short — it sits in a narrow
+    space under the logo.
 
-Both of these are ignored while available is true, so you can write them
-ahead of time and they will be ready whenever you need to pause.
+One thing to watch: every piece of text must stay inside its single quotes,
+exactly as it does now. If your text needs an apostrophe, type it as \' — for
+example:
 
-One thing to watch: each setting must stay inside its single quotes and end
-with a comma, exactly as it does now. If your text needs an apostrophe, type
-it as \' — for example:
-
-    notice: 'We\'re not taking online orders this week.',
+    notice: 'We\'re not taking Grubhub orders this week.',
 
 
 -------------------------------------------------------------------------------
@@ -92,7 +140,7 @@ The site is hosted on GitHub Pages, so a saved file is not a live file. After
 saving ordering.js, publish it from the Terminal in the website folder:
 
     git add ordering.js
-    git commit -m "Pause online ordering"
+    git commit -m "Pause Grubhub ordering"
     git push
 
 The live site usually updates within a minute or two.
@@ -111,11 +159,34 @@ The buttons still look normal after pausing
     Your browser cached the old file. Hard refresh the page:
     Cmd+Shift+R on Mac, Ctrl+Shift+R on Windows.
 
+Both buttons greyed out when you only paused one
+    Check that you changed only one switch to false and that each line still
+    ends with a comma.
+
 Nothing on the page loads anymore
     A quote or comma in ordering.js was most likely deleted by accident. Undo
     your change with:
 
         git checkout ordering.js
+
+
+-------------------------------------------------------------------------------
+IF YOU ADD ANOTHER DELIVERY PLATFORM LATER
+-------------------------------------------------------------------------------
+
+The switches are matched to the buttons by a label in index.html. Each button
+carries one, like this:
+
+    <a class="order-option" data-provider="grubhub" ...>
+
+To make a third platform switchable, give its button a data-provider of its
+own, for example data-provider="doordash", then add a matching line to the
+settings in ordering.js:
+
+    doordash: true,
+
+A button whose data-provider has no matching setting simply keeps working, so
+nothing breaks if you forget.
 
 
 -------------------------------------------------------------------------------
