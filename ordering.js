@@ -13,7 +13,7 @@
   const ORDERING = {
     // true  = that button works normally
     // false = that button greys out and stops working
-    grubhub:  false,
+    grubhub:  true,
     ubereats: true,
 
     // Shown above the buttons whenever at least one platform is paused.
